@@ -1,19 +1,20 @@
 module.exports = {
   apps: [
     {
-      name: 'application-fork',
-      script: './build/src/index.js',
+      name: 'app1',
+      script: 'dist/index.js',
       watch: true,
       autorestart: true,
-      args: '--mode fork --run pm2',
+      // instances: 4,
+      args: 'PORT=8001',
     },
     {
-      name: 'application-cluster',
-      script: './build/src/index.js',
+      name: 'app2',
+      script: 'dist/index.js',
       watch: true,
       autorestart: true,
-      instances: -1,
-      args: '--mode cluster --run pm2',
-    },
-  ],
+      // instances: 4,
+      args: 'PORT=8002',
+    }
+  ]
 };
